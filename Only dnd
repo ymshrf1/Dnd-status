@@ -1,0 +1,17 @@
+const { Client } = require('discord.js-selfbot-v13');
+const client = new Client();
+const TOKEN = 'حط_توكنك';
+client.on('ready', async () => {
+    async function setDND() {
+        try {
+            await client.user.setPresence({
+                activities: [],
+                status: 'dnd'
+            });
+        } catch (error) {
+        }
+    }
+    await setDND();
+    setInterval(setDND, 60000);
+});
+client.login(TOKEN);
