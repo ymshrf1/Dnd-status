@@ -1,0 +1,26 @@
+const { Client } = require('discord.js-selfbot-v13');
+const client = new Client();
+const TOKEN = 'حط_توكنك';
+const IMAGE_URL = 'حط_رابط_صورتك';
+client.on('ready', async () => {
+    async function setPerfectStatus() {
+        try {
+            await client.user.setPresence({
+                activities: [{
+                    name: 'حط_اسمك',
+                    type: 'STREAMING',
+                    url: 'https://www.twitch.tv/ymshrf',
+                    assets: {
+                        large_image: IMAGE_URL,
+                        large_text: 'حط_اسمك'
+                    }
+                }],
+                status: 'dnd'
+            });
+        } catch (error) {
+        }
+    }
+    await setPerfectStatus();
+    setInterval(setPerfectStatus, 60000);
+});
+client.login(TOKEN);
